@@ -10,11 +10,11 @@ const dburi = process.env.DBURI || `mongodb://${dbhost}:${dbport}/${dbname}`;
 
 const connect = async () => {
     try {
-        await mongoose.connect("mongodb+srv://admin:zIdE3WLEaKuvfvZG@cluster0.boftz2p.mongodb.net/inforaneo?retryWrites=true&w=majority");
-        console.log("Connected to database starting");
+        await mongoose.connect(dburi);
+        debug("Connected to database starting");
     } catch (error) {
         console.error(error);
-        console.log("Can't connect to database")
+        debug("Can't connect to database")
         process.exit(1);
     }
 }
